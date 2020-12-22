@@ -1,0 +1,8 @@
+build_libembui
+
+Drivers
+
+Core/Inc/rom_info.h
+roms
+
+.mxproject

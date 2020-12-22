@@ -1,0 +1,1 @@
+# libembui demo on Nintendo® Game & Watch™

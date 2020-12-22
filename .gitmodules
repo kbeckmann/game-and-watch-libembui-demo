@@ -1,0 +1,3 @@
+[submodule "libembui"]
+	path = libembui
+	url = git@github.com:kbeckmann/libembui.git
