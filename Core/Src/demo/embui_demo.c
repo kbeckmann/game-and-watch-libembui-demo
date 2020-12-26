@@ -113,17 +113,17 @@ void app_main(void)
 
         if (buttons && (buttons != last_buttons)) {
             switch (buttons) {
-            case B_Left:
-                if(!anim_states[0].running && anim_states[0].offset > -9){
-                    anim_states[0].offset-=1;
+            case B_Right:
+                if (!anim_states[0].running && anim_states[0].offset > -9) {
+                    anim_states[0].offset -= 1;
                     anim_states[0].duration = -500;
                     anim_states[0].anim_value = 1;
                     anim_states[0].running = true;
                 }
                 break;
-            case B_Right:
-                if(!anim_states[0].running && anim_states[0].offset < 0){
-                    anim_states[0].offset+=1;
+            case B_Left:
+                if (!anim_states[0].running && anim_states[0].offset < 0) {
+                    anim_states[0].offset += 1;
                     anim_states[0].duration = 500;
                     anim_states[0].anim_value = 0;
                     anim_states[0].running = true;
