@@ -257,16 +257,17 @@ $(BUILD_DIR)/$(TARGET)_extflash.bin: $(BUILD_DIR)/$(TARGET).elf | $(BUILD_DIR)
 
 OPENOCD ?= openocd
 OCDIFACE ?= interface/stlink.cfg
+TRANSPORT ?= hla_swd
 
 # Starts openocd and attaches to the target. To be used with 'flashx' and 'gdb'
 openocd:
-	$(OPENOCD) -f $(OCDIFACE) -c "transport select hla_swd" -f "target/stm32h7x.cfg" -c "reset_config none; init; halt"
+	$(OPENOCD) -f $(OCDIFACE) -c "transport select $(TRANSPORT)" -f "target/stm32h7x.cfg" -c "reset_config none; init; halt"
 .PHONY: openocd
 
 
 # Flashes using a new openocd instance
 flash: $(BUILD_DIR)/$(TARGET).elf
-	$(OPENOCD) -f $(OCDIFACE) -c "transport select hla_swd" -f "target/stm32h7x.cfg" -c "reset_config none; program $(BUILD_DIR)/$(TARGET).elf reset exit"
+	$(OPENOCD) -f $(OCDIFACE) -c "transport select $(TRANSPORT)" -f "target/stm32h7x.cfg" -c "reset_config none; program $(BUILD_DIR)/$(TARGET).elf reset exit"
 .PHONY: flash
 
 
